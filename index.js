@@ -1,23 +1,24 @@
 import "./user.js";
 
-window.addEventListener("load", () => {
-    fetchUsers();
+window.addEventListener("load", async () => {
+    // fetchUsers();
     registerSW();
 });
 
-const fetchUsers = async () => {
-    const result = await fetch("https://jsonplaceholder.typicode.com/users");
-    const json = await result.json();
-    console.log(json);
+// const fetchUsers = async () => {
+//     const result = await fetch("https://jsonplaceholder.typicode.com/users");
+//     const json = await result.json();
 
-    const userContainer = document.querySelector(".user-container");
+//     const userContainer = document.querySelector(".user-container");
 
-    json.forEach(user => {
-        const userEl = document.createElement("user-component");
-        userEl.user = user;
-        userContainer.appendChild(userEl);
-    });
-};
+//     await json.forEach(user => {
+//         const userEl = document.createElement("user-component");
+//         userEl.user = user;
+//         userContainer.appendChild(userEl);
+//     });
+
+//     await registerSW();
+// };
 
 const registerSW = async () => {
     if ("serviceWorker" in navigator) {
